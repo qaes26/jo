@@ -8,7 +8,7 @@ const axisTitles = {
     axis8: "ملحق: تحديث المنظومة السياسية"
 };
 
-export default function HomeComponent({ onSelectAxis }) {
+export default function HomeComponent({ onSelectAxis, onOpenOverview }) {
     return (
         <div className="flex flex-col items-center justify-center min-h-[80vh] p-4 text-center space-y-10 animate-fade-in-up">
             <header className="space-y-6 bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-white/50 w-full max-w-4xl">
@@ -19,6 +19,16 @@ export default function HomeComponent({ onSelectAxis }) {
                 <p className="text-2xl text-emerald-800 font-semibold">
                     جامعة أربد الاهلية
                 </p>
+
+                {/* New Overview Button */}
+                <div className="pt-4">
+                    <button
+                        onClick={onOpenOverview}
+                        className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-lg font-bold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-emerald-200"
+                    >
+                        نظرة عامة عن المادة
+                    </button>
+                </div>
             </header>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mt-8">

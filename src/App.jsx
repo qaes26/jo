@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import HomeComponent from './components/HomeComponent';
 import QuizComponent from './components/QuizComponent';
+import OverviewComponent from './components/OverviewComponent';
 
 function App() {
+  const [currentView, setCurrentView] = useState('home'); // 'home', 'overview', or axis ID
   const [selectedAxis, setSelectedAxis] = useState(null);
+
+  const handleNavigate = (view, axisId = null) => {
+    setCurrentView(view);
+    if (axisId) setSelectedAxis(axisId);
+  };
 
   return (
     <div className="min-h-screen font-cairo text-right relative" dir="rtl">
@@ -18,10 +25,24 @@ function App() {
       <div className="fixed inset-0 z-0 bg-black/40 backdrop-blur-[2px]" />
 
       <main className="container mx-auto px-4 py-8 md:py-12 relative z-10">
-        {!selectedAxis ? (
-          <HomeComponent onSelectAxis={setSelectedAxis} />
-        ) : (
-          <QuizComponent axis={selectedAxis} onBack={() => setSelectedAxis(null)} />
+        {currentView === 'home' && (
+          <HomeComponent
+            onSelectAxis={(axis) => handleNavigate('quiz', axis)}
+            onOpenOverview={() => handleNavigate('overview')}
+          />
+        )}
+
+        {currentView === 'quiz' && (
+          <QuizComponent
+            axis={selectedAxis}
+            onBack={() => handleNavigate('home')}
+          />
+        )}
+
+        {currentView === 'overview' && (
+          <OverviewComponent
+            onBack={() => handleNavigate('home')}
+          />
         )}
       </main>
 
