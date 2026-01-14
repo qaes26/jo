@@ -32,8 +32,7 @@ export default function HomeComponent({ onSelectAxis }) {
                             <span className="text-2xl md:text-3xl font-bold text-gray-800 group-hover:text-emerald-700 transition-colors">
                                 {axisTitles[axis]}
                             </span>
-                            <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-bold group-hover:bg-emerald-600 group-hover:text-white transition-all">
-                                50 سؤال
+                                70 سؤال
                             </span>
                         </div>
                     </button>
@@ -45,6 +44,6 @@ export default function HomeComponent({ onSelectAxis }) {
                     اختبر معلوماتك في محاور مادة التربية الوطنية. هذا التطبيق مصمم لمساعدتك على المراجعة وتثبيت المعلومات بشكل تفاعلي وممتع.
                 </p>
             </div>
-        </div>
+        </div >
     );
 }
