@@ -4,7 +4,8 @@ const axisTitles = {
     axis4: "المحور الرابع: النظام السياسي والدستور",
     axis5: "المحور الخامس: الأمن الوطني",
     axis6: "المحور السادس: المجتمع الأردني",
-    axis7: "المحور السابع: الإعلام الوطني"
+    axis7: "المحور السابع: الإعلام الوطني",
+    axis8: "ملحق: تحديث المنظومة السياسية"
 };
 
 export default function HomeComponent({ onSelectAxis }) {
@@ -33,7 +34,7 @@ export default function HomeComponent({ onSelectAxis }) {
                                 {axisTitles[axis]}
                             </span>
                             <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-bold group-hover:bg-emerald-600 group-hover:text-white transition-all">
-                                70 سؤال
+                                {axis === 'axis8' ? '30 سؤال' : '70 سؤال'}
                             </span>
                         </div>
                     </button>
